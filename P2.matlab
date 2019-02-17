@@ -7,17 +7,14 @@ function [c, TFinal] = jugarBN(T) %función que tira en un tablero dado hasta qu
         i = round(rand() * 9) + 1; %genera un entero para la filas
         j = round(rand() * 9) + 1; %y columnas, entre 1 y 10.
 
-        if TFinal(i, j) > 179 %si el casillero elegido es mayor
-        %que 179 (es un barco)
-        TFinal(i, j) = 255; %asigna 255 al casillero, barco
-        %tocado.
-        c = c + 1; %aumenta 1 el número de tiros
-        a = 1; %el barco fue tocado.
+        if TFinal(i, j) > 179 %si el casillero elegido es mayor que 179 (es un barco)
+            TFinal(i, j) = 255; %asigna 255 al casillero, barco tocado.
+            c = c + 1; %aumenta 1 el número de tiros
+            a = 1; %el barco fue tocado.
 
-            elseif TFinal(i, j) < 100 %si el casillero elegido es menor
-            %a 100, esto es no tiene barco y todavía no fue elegido.
-            TFinal(i, j) = 100; %marca el casillero como agua, ya no se podrá elegir de nuevo
-            c = c + 1; %aumenta el número de tiros en 1.
+            elseif TFinal(i, j) < 100 %si el casillero elegido es menor a 100, esto es no tiene barco y todavía no fue elegido.
+                TFinal(i, j) = 100; %marca el casillero como agua, ya no se podrá elegir de nuevo
+                c = c + 1; %aumenta el número de tiros en 1.
             end
         end
         
